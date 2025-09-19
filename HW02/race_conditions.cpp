@@ -35,7 +35,7 @@ int run_and_time(int T, F &&fn) {
 }
 
 int main() {
-    const int T = std::thread::hardware_concurrency() ? std::thread::hardware_concurrency() ? 4;
+    const int T = std::thread::hardware_concurrency() ? std::thread::hardware_concurrency() : 4;
     const int expected = T * ITER;
 
     // No Lock
