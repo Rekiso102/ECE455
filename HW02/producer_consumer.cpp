@@ -17,7 +17,7 @@ void producer() {
         std::unique_lock<std::mutex> lk(m);
         cv.wait(lk, []{ return (int)q.size() < MAX_ITEMS; });
         q.push(i);
-        std::cout << "Producted: " << i << "\n";
+        std::cout << "Produced: " << i << "\n";
         lk.unlock();
         cv.notify_all();
     }
