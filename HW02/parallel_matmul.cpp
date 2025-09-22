@@ -9,7 +9,7 @@ void multiply_block(const std::vector<double> &A, const std::vector<double> &B, 
         for (int j = 0; j < N; ++j) {
             double sum = 0.0;
             for (int k = 0; k < N; ++k) {
-                sum += A[i* N + k] * B[k*N + j];
+                sum += A[i*N + k] * B[k*N + j];
             }
             C[i*N + j] = sum;
         }
@@ -33,7 +33,7 @@ int main() {
     for (int t = 0; t < T; ++t) {
         int rs = t * chunk;
         int re = (t == T-1) ? N : rs + chunk;
-        threads.emplace_back(multiply_block, std::cref(A), std::cref(B), std::cref(C), N, rs, re);
+        threads.emplace_back(multiply_block, std::cref(A), std::cref(B), std::ref(C), N, rs, re);
     }
 
     for (auto &th : threads) th.join();
