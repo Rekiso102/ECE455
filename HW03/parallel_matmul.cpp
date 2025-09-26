@@ -13,7 +13,7 @@ int main() {
         for (int j = 0; j < N; ++j) {
             int sum = 0;
             for (int k = 0; k < N; ++k) {
-                sum += A[i][k] * N[k][j];
+                sum += A[i][k] * B[k][j];
             }
             C[i][j] = sum;
         }
