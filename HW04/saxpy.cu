@@ -16,7 +16,7 @@ int main() {
 
     cudaMalloc(&d_x, size);
     cudaMalloc(&d_y, size);
-    cudeMemcpy(d_x, x, size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_x, x, size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_y, y, size, cudaMemcpyHostToDevice);
 
     int threadsPerBlock = 256;
